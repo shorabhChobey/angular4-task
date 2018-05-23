@@ -1,0 +1,51 @@
+
+<div class="dashboard">
+<div class="header"><h1>Welcome to Dashboard</h1><a  routerLink="/login"><button>Log Out</button></a>
+</div>
+
+<form  class="dashboard-form"  #dashboard="ngForm"   >
+         <div class="form-group">
+           <input type="text"  class="form-control" id="name" placeholder="Task Name" name="taskname" ngModel required   [value]="name">
+         </div>
+         <div class="form-group" >
+           <input type="date"  class="form-control" id="date" placeholder="Date" name="date" ngModel required  [value]="date">
+         </div>
+       
+         <div>
+           <input type="text"  class="form-control" id="description" placeholder="Description" name="description" ngModel [value]="description">
+         </div>
+       <div>
+           <input type="hidden"  class="form-control" id="description" placeholder="Description" name="taskUpdate" ngModel [value]="hidden">
+         </div>
+         <div class="button-flow">
+           <button class="button"  type='submit' (click)="onSubmit(dashboard.value)" >Add Todo</button>
+                 
+           <button class="button" type="submit"  *ngIf="update" (click)="updateItem(dashboard .value)" >Update</button>
+           </div>
+           
+       </form>
+
+<div class="row">
+<table>
+<tr>
+ <th>Task Name</th>
+ <th>Description</th>
+ <th>Date</th>
+ <th>Edit</th>
+ <th>Delete</th>
+</tr>
+
+<tbody *ngFor= "let x of this.match">
+<tr>
+<td>{{x.taskname}}</td>
+<td>{{x.description}}</td>
+<td>{{x.date}}</td>
+<td><button (click)="edit(x.taskname)">Edit</button></td>
+<td><button (click)="delete(x.delete)">Delete</button></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>

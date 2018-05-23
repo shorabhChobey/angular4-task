@@ -1,0 +1,119 @@
+.registration-form{
+	padding-top: 70px;
+	padding-bottom: 270px;
+	background: linear-gradient(#094297, #169b4f,#094297);
+	text-align: center;
+	color: white;
+	font-size: 18px;
+}
+input{
+	color: black;
+}
+.sign-up{
+font-size: 24px !important;
+}
+
+.sign-up-form{
+	border-radius: 10px;
+	background-color: black;
+	padding: 20px;
+	margin-left:35%;
+	margin-right:35%;
+}
+
+.login{
+	padding-top: 20px;
+	font-size: 18px;
+	text-align: center;
+}
+
+.sign{
+	text-align: center;
+}
+
+.button{
+	padding-top: 20px;
+}
+
+
+a{
+	color: white;
+	font-size: 24px;
+}
+
+
+
+/*---------media queries--------------*/
+@media (min-width: 1200px)
+{
+
+.sign-in-form{
+	margin-left:40%;
+	margin-right:40%;
+}
+.button{
+padding-left: 40%;
+	padding-right: 35%;
+
+}
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px)
+{
+
+.button{
+padding-left: 40%;
+	padding-right: 40%;
+
+}
+.sign-up-form{
+	margin-left:25%;
+	margin-right:25%;
+}
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px)
+{
+
+.button{
+padding-left: 29%;
+	padding-right: 33%;
+
+}
+.sign-up-form{
+	margin-left:25%;
+	margin-right:25%;
+}
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px)
+{
+.button{
+padding-left: 32%;
+	padding-right: 32%;
+
+}
+.sign-up-form{
+	margin-left:20%;
+	margin-right:20%;
+}
+
+}
+@media (max-width: 575px)
+{
+	.button{
+padding-left: 15%;
+	padding-right: 15%;
+
+}
+.sign-up-form{
+	margin-left:15%;
+	margin-right:15%;
+}
+
+}
+/*---------end media query-------*/ 

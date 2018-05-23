@@ -1,0 +1,12 @@
+.signin{
+	padding-top: 70px;
+	padding-bottom: 270px;
+	background: linear-gradient(#ac2345, #2345ae);
+
+	text-align: center;
+	color: white;
+	font-size: 18px;
+}
+input{
+	color: black;
+}
