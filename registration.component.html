@@ -1,0 +1,27 @@
+ <div class="registration-form"  > 
+       
+      <div class="signup">
+      <p>Create your account</p>
+      </div>
+ <form  #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm.value)" novalidate id="validation" class="sign-up-form">
+     <div class="name">
+      <input type="text"  class="form-control" placeholder="First Name" name="name" required [(ngModel)]="registrationForm.name" #fName="ngModel" ngModel >
+      <div *ngIf="fName.touched &&fName.errors?.required" class="alert alert-danger">
+       Name filled is required.
+     </div>
+
+    </div>
+       
+   <div class="email" >
+     <input type="email"  class="form-control"  placeholder="Email" name="email" required ngModel >
+    </div>
+    <div class="password">
+    <input type="password"  class="form-control"  placeholder="Password" name="password" required ngModel>
+    </div>      
+    <div  class="submit">
+<input type="submit" value="Submit" required ngModel  />
+         </div>
+</form> 
+ <div class="signin">
+ <p > Already have an account? <a routerLink="/">Sign In</a></p>
+  </div>
