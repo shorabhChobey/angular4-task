@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
+declare var $:any;
 declare var window: any;
 @Component({
   selector: 'app-registration',
@@ -20,7 +20,7 @@ export class RegistrationComponent implements OnInit {
 constructor(private router:Router) {}
 
 
-  ngOnInit() {}
+  ngOnInit() { }
    
        onSubmit(form: any):void{
        console.log(form);

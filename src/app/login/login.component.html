@@ -1,12 +1,21 @@
 <div class="signin">
 <div class="login"><h1>Login your account</h1>
 </div>
-<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" class="sign-in-form">
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" novalidate class="sign-in-form">
 <div class="email">
-<input type="email" name="email" placeholder="Enter email" ngModel required />
+<input type="email" name="email" placeholder="Enter email" ngModel required  [(ngModel)]="loginForm.email" #fEmail="ngModel" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" />
+<div *ngIf="fEmail.touched &&fEmail.errors?.required" class="alert alert-danger">
+           Email is required
+         </div>
+         <div *ngIf="fEmail.errors?.pattern" class="alert alert-danger">
+           Enter valid email id.
+         </div>
 </div>
 <div class="password">
-<input type="password" name="password" placeholder="Password" ngModel required />
+<input type="password" name="password" placeholder="Password" [(ngModel)]="loginForm.password" #fPassword="ngModel" required />
+<div *ngIf="fPassword.touched &&fPassword.errors?.required" class="alert alert-danger">
+           Password is required
+         </div>
 </div>
 <div class="submit">
 <input type="submit" value="Submit" ngModel required />
@@ -15,7 +24,7 @@
 <p><a href="#">Forget Password</a></p>
 </div>
 <div class="signup">
-<P>Already hava account? <a routerLink='/registration'>Sign Up</a></P>
+<P>Already have account? <a routerLink='/registration'>Sign Up</a></P>
 </div>
 </form>
 </div>
