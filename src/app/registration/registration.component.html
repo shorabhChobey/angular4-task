@@ -3,7 +3,7 @@
       <div class="signup">
       <p>Create your account</p>
       </div>
- <form  #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm.value)" novalidate id="validation" class="sign-up-form">
+ <form ngNativeValidate #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm.value)"  id="validation" class="sign-up-form">
      <div class="name">
       <input type="text"  class="form-control" placeholder="First Name" name="name" required  ngModel >
       
@@ -18,8 +18,8 @@
            Enter valid email id.
          </div>
     </div>
-    <div class="password">
-    <input type="password"  class="form-control"  placeholder="Password" name="password" required ngModel>
+    <div class="password"
+>    <input type="password"  class="form-control"  placeholder="Password" name="password" required ngModel>
     </div>      
     <div  class="submit">
 <input type="submit" value="Submit" required ngModel  />
