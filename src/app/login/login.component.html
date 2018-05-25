@@ -1,9 +1,9 @@
 <div class="signin">
 <div class="login"><h1>Login your account</h1>
 </div>
-<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" novalidate class="sign-in-form">
+<form ngNativeValidate #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" class="sign-in-form">
 <div class="email">
-<input type="email" name="email" placeholder="Enter email" ngModel required  [(ngModel)]="loginForm.email" #formEmail="ngModel" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" />
+<input type="email" class="input-lg col-xs input-group-lg" name="email" placeholder="Enter email" ngModel required  [(ngModel)]="loginForm.email" #formEmail="ngModel" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" />
 <div *ngIf="formEmail.touched &&formEmail.errors?.required" class="alert alert-danger">
            Email is required
          </div>
@@ -12,7 +12,7 @@
          </div>
 </div>
 <div class="password">
-<input type="password" name="password" placeholder="Password" [(ngModel)]="loginForm.password" #formPassword="ngModel" required />
+<input type="password" class="input-lg col-xs input-group-lg" name="password" placeholder="Password" [(ngModel)]="loginForm.password" #formPassword="ngModel" required />
 <div *ngIf="formPassword.touched &&formPassword.errors?.required" class="alert alert-danger">
            Password is required
 </div>
@@ -20,12 +20,13 @@
 <div class="submit">
 <input type="submit" value="Submit" ngModel required />
 </div>
+</form>
 <div class="forget">
 <p><a href="#">Forget Password</a></p>
 </div>
 <div class="signup">
 <P>Already have account? <a routerLink='/registration'>Sign Up</a></P>
 </div>
-</form>
+
 </div>
 <router-outlet></router-outlet>

@@ -5,9 +5,12 @@
       </div>
  <form ngNativeValidate #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm.value)"  id="validation" class="sign-up-form">
      <div class="name">
-      <input type="text"  class="form-control" placeholder="First Name" name="name" required  ngModel #formName="ngModel">
+      <input type="text"  class="form-control" placeholder="First Name" name="name" required  ngModel #formName="ngModel" pattern="^([a-zA-Z]{3,})">
       <div *ngIf="formName.touched &&formName.errors?.required" class="alert alert-danger">
       Please enter your name.
+      </div>
+      <div *ngIf="formName.errors?.pattern" class="alert alert-danger">
+      Name should be minimum 3 characters.
       </div>
     </div>
        
@@ -20,8 +23,14 @@
            Enter valid email id.
          </div>
     </div>
-    <div class="password"
->    <input type="password"  class="form-control"  placeholder="Password" name="password" required ngModel>
+    <div class="password"> 
+       <input type="password"  class="form-control"  placeholder="Password" name="password" required ngModel #formPassword="ngModel" pattern="^([a-zA-Z0-9]{6,})">
+       <div *ngIf="formPassword.touched &&formPassword.errors?.required" class="alert alert-danger">
+       Please create a password.
+       </div>
+       <div *ngIf="formPassword.errors?.pattern" class="alert alert-danger">
+       Password should be at least 6 characters.
+       </div>
     </div>      
     <div  class="submit">
 <input type="submit" value="Submit" required ngModel  />

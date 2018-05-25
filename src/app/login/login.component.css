@@ -2,11 +2,44 @@
 	padding-top: 70px;
 	padding-bottom: 270px;
 	background: linear-gradient(#ac2345, #2345ae);
-
-	text-align: center;
 	color: white;
 	font-size: 18px;
 }
 input{
+padding-left: 20px;
 	color: black;
+}
+
+.sign-in-form{
+	border-radius: 10px;
+	text-align: center;
+	margin-left: 37%;
+	margin-right: 37%;
+	background-color: black;
+}
+
+.email{
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+.password{
+	padding-top: 10px;
+	padding-bottom:10px;
+}
+
+.input-lg{
+	border-radius: 5px;
+	height:30px;
+}
+
+.col-xs{
+	width: 300px;
+}
+
+.input-group-lg{
+	font-size: 18px;
+}
+form{
+	padding-bottom: 20px;
 }
