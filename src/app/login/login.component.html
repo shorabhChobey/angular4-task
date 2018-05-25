@@ -3,19 +3,19 @@
 </div>
 <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" novalidate class="sign-in-form">
 <div class="email">
-<input type="email" name="email" placeholder="Enter email" ngModel required  [(ngModel)]="loginForm.email" #fEmail="ngModel" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" />
-<div *ngIf="fEmail.touched &&fEmail.errors?.required" class="alert alert-danger">
+<input type="email" name="email" placeholder="Enter email" ngModel required  [(ngModel)]="loginForm.email" #formEmail="ngModel" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" />
+<div *ngIf="formEmail.touched &&formEmail.errors?.required" class="alert alert-danger">
            Email is required
          </div>
-         <div *ngIf="fEmail.errors?.pattern" class="alert alert-danger">
+         <div *ngIf="formEmail.errors?.pattern" class="alert alert-danger">
            Enter valid email id.
          </div>
 </div>
 <div class="password">
-<input type="password" name="password" placeholder="Password" [(ngModel)]="loginForm.password" #fPassword="ngModel" required />
-<div *ngIf="fPassword.touched &&fPassword.errors?.required" class="alert alert-danger">
+<input type="password" name="password" placeholder="Password" [(ngModel)]="loginForm.password" #formPassword="ngModel" required />
+<div *ngIf="formPassword.touched &&formPassword.errors?.required" class="alert alert-danger">
            Password is required
-         </div>
+</div>
 </div>
 <div class="submit">
 <input type="submit" value="Submit" ngModel required />
