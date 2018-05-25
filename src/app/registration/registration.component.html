@@ -5,8 +5,10 @@
       </div>
  <form ngNativeValidate #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm.value)"  id="validation" class="sign-up-form">
      <div class="name">
-      <input type="text"  class="form-control" placeholder="First Name" name="name" required  ngModel >
-      
+      <input type="text"  class="form-control" placeholder="First Name" name="name" required  ngModel #formName="ngModel">
+      <div *ngIf="formName.touched &&formName.errors?.required" class="alert alert-danger">
+      Please enter your name.
+      </div>
     </div>
        
    <div class="email" >
