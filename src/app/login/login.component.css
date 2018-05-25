@@ -1,14 +1,37 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+body{
+	margin-top: 0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+}
+.login{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 36px;
+	
+	color: white;
+	text-align: center;
+	background-color: #14334d;
+	
+}
+
 .signin{
-	padding-top: 70px;
-	padding-bottom: 270px;
+	padding-top: 140px;
+	padding-bottom: 165.5px;
 	background: linear-gradient(#ac2345, #2345ae);
 	color: white;
 	font-size: 18px;
 }
 input{
 padding-left: 20px;
+padding-right: 20px;
 	color: black;
 }
+
 
 .sign-in-form{
 	border-radius: 10px;
@@ -17,7 +40,10 @@ padding-left: 20px;
 	margin-right: 37%;
 	background-color: black;
 }
-
+a{
+	color:white;
+	text-decoration: none;
+}
 .email{
 	padding-top: 20px;
 	padding-bottom: 10px;
@@ -43,3 +69,125 @@ padding-left: 20px;
 form{
 	padding-bottom: 20px;
 }
+
+.submit{
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+.submit-button{
+	border-radius: 5px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 20px;
+	background-color: #eb3800;
+	color:white;
+}
+
+
+.submit-button:hover{
+	background-color: #ab34e4;
+
+}
+
+.forget{
+	padding-top: 10px;
+	text-align: center;
+}
+
+.signup{
+	padding-top: 5px;
+	text-align: center;
+}
+.alert{
+	color: #ed0c07 !important;
+	    margin-left: 18px;
+    margin-right: 17px;
+}
+
+footer{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: white;
+	text-align: center;
+	font-size: 24px;
+	background-color: #021b30;
+}
+
+
+
+
+
+/*---------media queries--------------*/
+@media (min-width: 1200px)
+{
+.sign-in-form{
+
+margin-left: 37%;
+    margin-right: 37%;
+}.alert{
+	    margin-left: 50px;
+    margin-right: 50px;
+}
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px)
+{
+.sign-in-form{
+
+margin-left: 32%;
+    margin-right: 32%;
+}
+.alert{
+	    margin-left: 60px;
+    margin-right: 60px;
+}
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px)
+{
+.sign-in-form{
+margin-left: 28%;
+    margin-right: 28%;
+
+}
+.alert{
+	    margin-left: 47px;
+    margin-right: 47px;
+}
+
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px)
+{
+.sign-in-form{
+	margin-left: 23%;
+    margin-right: 23%;
+}
+.alert{
+	    margin-left: 25px;
+    margin-right: 25px;
+}
+
+}
+
+@media (max-width: 575px)
+{
+.sign-in-form{
+
+margin-left: 17%;
+    margin-right: 17%;
+}
+.alert{
+	    margin-left: 39px;
+    margin-right: 39px;
+}
+
+}
+/*---------end media query-------*/ 

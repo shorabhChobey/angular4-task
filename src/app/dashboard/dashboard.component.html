@@ -1,31 +1,38 @@
-
-<div class="dashboard">
-<div class="header"><h1>Welcome to Dashboard</h1><a  routerLink="/login"><button>Log Out</button></a>
+<header>
+<div class="header">
+ Welcome to Dashboard <span class="head"> <a  routerLink="/login"><button>Log Out</button></a></span>
 </div>
+</header>
+<div class="dashboard">
+<form ngNativeValidate class="dashboard-form"  #dashboard="ngForm" >
+  <div class="form-group">
+   <input type="text"  class="form-control" id="name" placeholder="Task Name" name="taskname" ngModel required [value]="name" #formTask="ngModel">
+   <div *ngIf="formTask.touched &&formTask.errors?.required" class="alert alert-danger">
+   Please enter task name.
+   </div>
+  </div>
+  <div class="form-group" >
+   <input type="date"  class="form-control" id="date" placeholder="Date" name="date" ngModel required [value]="date" #formDate="ngModel">
+   <div *ngIf="formDate.touched &&formDate.errors?.required" class="alert alert-danger">
+   Please enter the date.
+   </div>
+  </div>      
+   <div>
+  <input type="text"  class="form-control" id="description" placeholder="Description" name="description" required ngModel [value]="description" #formDescription="ngModel">
+  <div *ngIf="formDescription.touched &&formDescription.errors?.required" class="alert alert-danger">
+  Please enter description.
+  </div>
+  </div>
+  <div>
+  <input type="hidden"  class="form-control" id="description" placeholder="Description" name="taskUpdate" ngModel [value]="hidden">
+  </div>
+  <div class="button-flow">
+  <button class="button"  type='submit' (click)="onSubmit(dashboard.value)" >Add Todo</button>               
+  <button class="button" type="submit"  *ngIf="update" (click)="updateItem(dashboard .value)" >Update</button>
+  </div>         
+  </form>
 
-<form  class="dashboard-form"  #dashboard="ngForm"   >
-         <div class="form-group">
-           <input type="text"  class="form-control" id="name" placeholder="Task Name" name="taskname" ngModel required   [value]="name">
-         </div>
-         <div class="form-group" >
-           <input type="date"  class="form-control" id="date" placeholder="Date" name="date" ngModel required  [value]="date">
-         </div>
-       
-         <div>
-           <input type="text"  class="form-control" id="description" placeholder="Description" name="description" ngModel [value]="description">
-         </div>
-       <div>
-           <input type="hidden"  class="form-control" id="description" placeholder="Description" name="taskUpdate" ngModel [value]="hidden">
-         </div>
-         <div class="button-flow">
-           <button class="button"  type='submit' (click)="onSubmit(dashboard.value)" >Add Todo</button>
-                 
-           <button class="button" type="submit"  *ngIf="update" (click)="updateItem(dashboard .value)" >Update</button>
-           </div>
-           
-       </form>
-
-<div class="row">
+<div class="table">
 <table>
 <tr>
  <th>Task Name</th>
@@ -34,7 +41,6 @@
  <th>Edit</th>
  <th>Delete</th>
 </tr>
-
 <tbody *ngFor= "let x of this.match">
 <tr>
 <td>{{x.taskname}}</td>
@@ -43,9 +49,12 @@
 <td><button (click)="edit(x.taskname)">Edit</button></td>
 <td><button (click)="delete(x.delete)">Delete</button></td>
 </tr>
-
-
 </tbody>
 </table>
 </div>
 </div>
+
+
+<footer>
+© All copyrights are reserved.
+</footer>

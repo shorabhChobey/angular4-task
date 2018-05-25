@@ -1,6 +1,10 @@
-<div class="signin">
-<div class="login"><h1>Login your account</h1>
+<body>
+<header>
+<div class="login">
+Login your account
 </div>
+</header>
+<div class="signin">
 <form ngNativeValidate #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" class="sign-in-form">
 <div class="email">
 <input type="email" class="input-lg col-xs input-group-lg" name="email" placeholder="Enter email" ngModel required  [(ngModel)]="loginForm.email" #formEmail="ngModel" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" />
@@ -18,7 +22,7 @@
 </div>
 </div>
 <div class="submit">
-<input type="submit" value="Submit" ngModel required />
+<input class="submit-button" type="submit" value="Submit" ngModel required />
 </div>
 </form>
 <div class="forget">
@@ -27,6 +31,9 @@
 <div class="signup">
 <P>Already have account? <a routerLink='/registration'>Sign Up</a></P>
 </div>
-
 </div>
+<footer>
+	© All copyrights are reserved.
+</footer>
 <router-outlet></router-outlet>
+</body>

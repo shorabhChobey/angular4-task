@@ -1,11 +1,12 @@
+ <body>
+ <header>
+      Create your Account
+  </header>
  <div class="registration-form"  > 
        
-      <div class="signup">
-      <p>Create your account</p>
-      </div>
  <form ngNativeValidate #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm.value)"  id="validation" class="sign-up-form">
      <div class="name">
-      <input type="text"  class="form-control" placeholder="First Name" name="name" required  ngModel #formName="ngModel" pattern="^([a-zA-Z]{3,})">
+      <input type="text"  class="form-control input-lg col-xs input-group-lg" placeholder="First Name" name="name" required  ngModel #formName="ngModel" pattern="^([a-zA-Z]{3,})">
       <div *ngIf="formName.touched &&formName.errors?.required" class="alert alert-danger">
       Please enter your name.
       </div>
@@ -15,7 +16,7 @@
     </div>
        
    <div class="email" >
-     <input type="email"  class="form-control"  placeholder="Email" name="email" required ngModel #formEmail="ngModel" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" />
+     <input type="email"  class="form-control input-lg col-xs input-group-lg"  placeholder="Email" name="email" required ngModel #formEmail="ngModel" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" />
 <div *ngIf="formEmail.touched &&formEmail.errors?.required" class="alert alert-danger">
            Email is required
          </div>
@@ -24,7 +25,7 @@
          </div>
     </div>
     <div class="password"> 
-       <input type="password"  class="form-control"  placeholder="Password" name="password" required ngModel #formPassword="ngModel" pattern="^([a-zA-Z0-9]{6,})">
+       <input type="password"  class="form-control input-lg col-xs input-group-lg"  placeholder="Password" name="password" required ngModel #formPassword="ngModel" pattern="^([a-zA-Z0-9]{6,})">
        <div *ngIf="formPassword.touched &&formPassword.errors?.required" class="alert alert-danger">
        Please create a password.
        </div>
@@ -33,9 +34,15 @@
        </div>
     </div>      
     <div  class="submit">
-<input type="submit" value="Submit" required ngModel  />
-         </div>
+<input class="submit-button" type="submit" value="Submit" required ngModel  />
+   </div>
 </form> 
+
  <div class="signin">
  <p > Already have an account? <a routerLink="/">Sign In</a></p>
   </div>
+</div>
+<footer>
+  © All copyrights are reserved.
+</footer>
+</body>
