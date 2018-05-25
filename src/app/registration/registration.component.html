@@ -10,13 +10,13 @@
     </div>
        
    <div class="email" >
-     <input type="email"  class="form-control"  placeholder="Email" name="email"  ngModel  #formEmail="ngModel" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" />
+     <input type="email"  class="form-control"  placeholder="Email" name="email" required ngModel #formEmail="ngModel" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" />
 <div *ngIf="formEmail.touched &&formEmail.errors?.required" class="alert alert-danger">
-           Email is required. Please enter email id.
-</div>
-<div *ngIf="formEmail.errors?.pattern" class="alert alert-danger">
+           Email is required
+         </div>
+         <div *ngIf="formEmail.errors?.pattern" class="alert alert-danger">
            Enter valid email id.
-</div>
+         </div>
     </div>
     <div class="password">
     <input type="password"  class="form-control"  placeholder="Password" name="password" required ngModel>
