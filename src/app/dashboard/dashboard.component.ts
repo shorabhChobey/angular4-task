@@ -81,14 +81,12 @@ constructor(private router:Router) {}
       }
 
     delete(taskname:string){
-   console.log(taskname);
         alert("Delete Successful");
         let fetchArray= JSON.parse(window.localStorage.getItem('key'));
-      console.log(JSON.parse(window.localStorage.getItem('key')));
            var j =0 ;
 
 
-           debugger;
+           
           for(var i=0; i< fetchArray.length; i++)
          {
            if (taskname == fetchArray[i].taskname)
@@ -121,17 +119,19 @@ edit(taskname:string){
   updateItem(form: any):void{
      
        this.taskname=form.taskname;
+      
        this.date=form.date;
        this.description=form.description;
        form.taskname=this.hidden;
+
        this.taskUpdate=form.taskname;
-       
+      
+      console.log(this.taskname);
         let inLocalStorage= JSON.parse(window.localStorage.getItem('key'));
        
           let itemUpdate={ "taskname":this.taskname , "date": this.date, "description": this.description};
           var j =0 ;
          console.log("values to be entered in array");
-          console.log(itemUpdate);
        
           for(var i=0; i< inLocalStorage.length; i++)
          {
@@ -145,11 +145,8 @@ edit(taskname:string){
          }  
 
                  this.myArray.splice(j,1,itemUpdate);
-                 console.log(this.myArray);
+               
                  window.localStorage.setItem('key',JSON.stringify(this.myArray));
              this.match= JSON.parse(window.localStorage.getItem('key'));
 }  
-
-
-
   }
