@@ -118,14 +118,17 @@ edit(taskname:string){
 
   updateItem(form: any):void{
      
+     if((form.taskname!=="" && form.date!=="" && form.description!==""))
+     {
        this.taskname=form.taskname;
+     
      console.log(this.taskname); 
        this.date=form.date;
        this.description=form.description;
        form.taskname=this.hidden;
 
        this.taskUpdate=form.taskname;
-      
+     } 
         let inLocalStorage= JSON.parse(window.localStorage.getItem('key'));
        
           let itemUpdate={ "taskname":this.taskname , "date": this.date, "description": this.description};
