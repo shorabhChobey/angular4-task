@@ -81,21 +81,25 @@ constructor(private router:Router) {}
       }
 
     delete(taskname:string){
+   console.log(taskname);
         alert("Delete Successful");
         let fetchArray= JSON.parse(window.localStorage.getItem('key'));
-      
+      console.log(JSON.parse(window.localStorage.getItem('key')));
            var j =0 ;
+
+
+           debugger;
           for(var i=0; i< fetchArray.length; i++)
          {
            if (taskname == fetchArray[i].taskname)
-           {
+            {
 
              j=i;
         
            }
         
          }  
-     this.myArray.splice(j,1);
+ this.myArray.splice(j,1);
                  console.log(this.myArray);
                  window.localStorage.setItem('key',JSON.stringify(this.myArray));
              this.match= JSON.parse(window.localStorage.getItem('key'));
@@ -105,8 +109,8 @@ edit(taskname:string){
        this.update=true;
        let fetchArray= JSON.parse(window.localStorage.getItem('key'));
        this.editItem = fetchArray.filter(fetchArray => fetchArray.taskname == taskname);
-       
         this.taskname=this.editItem[0].taskname;
+        console.log(this.editItem[0].taskname);
         this.date=this.editItem[0].date;
         this.description=this.editItem[0].description;
         this.hidden=this.editItem[0].taskname;

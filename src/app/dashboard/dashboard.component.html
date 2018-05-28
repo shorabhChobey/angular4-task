@@ -6,7 +6,7 @@
 <div class="dashboard">
 <form ngNativeValidate class="dashboard-form"  #dashboard="ngForm" >
   <div class="form-group">
-   <input type="text"  class="form-control" id="name" placeholder="Task Name" name="taskname" ngModel required [value]="name" #formTask="ngModel">
+   <input type="text"  class="form-control" id="name" placeholder="Task Name" name="taskname" ngModel required [value]="taskname" #formTask="ngModel">
    <div *ngIf="formTask.touched &&formTask.errors?.required" class="alert alert-danger">
    Please enter task name.
    </div>
@@ -47,7 +47,7 @@
 <td>{{x.description}}</td>
 <td>{{x.date}}</td>
 <td><button (click)="edit(x.taskname)">Edit</button></td>
-<td><button (click)="delete(x.delete)">Delete</button></td>
+<td><button (click)="delete(x.taskname)">Delete</button></td>
 </tr>
 </tbody>
 </table>
