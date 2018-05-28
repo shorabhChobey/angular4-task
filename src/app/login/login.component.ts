@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
        this.email=form.email;
        this.password=form.password;
        this.a=0;
-       debugger;
+      
      if(this.email=="" && this.password=="")
       {
         alert("Enter your id and password");
