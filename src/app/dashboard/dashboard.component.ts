@@ -119,33 +119,33 @@ edit(taskname:string){
   updateItem(form: any):void{
      
        this.taskname=form.taskname;
-      
+     console.log(this.taskname); 
        this.date=form.date;
        this.description=form.description;
        form.taskname=this.hidden;
 
        this.taskUpdate=form.taskname;
       
-      console.log(this.taskname);
         let inLocalStorage= JSON.parse(window.localStorage.getItem('key'));
        
           let itemUpdate={ "taskname":this.taskname , "date": this.date, "description": this.description};
-          var j =0 ;
-         console.log("values to be entered in array");
-       
+          var j =(-1) ;
+         
+       debugger;
           for(var i=0; i< inLocalStorage.length; i++)
          {
            if (this.taskUpdate == inLocalStorage[i].taskname)
            {
-
+           console.log("inside the if function");
              j=i;
         
            }
         
          }  
-
+            if(j>0){
                  this.myArray.splice(j,1,itemUpdate);
-               
+                 }
+                 console.log(itemUpdate);
                  window.localStorage.setItem('key',JSON.stringify(this.myArray));
              this.match= JSON.parse(window.localStorage.getItem('key'));
 }  
