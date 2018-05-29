@@ -22,7 +22,7 @@ const appRoutes: Routes=[
     AppComponent,
     RegistrationComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)

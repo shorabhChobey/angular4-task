@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
     public editItem:{ "taskname": string, "date": any, "description": any }=null;
   
      
-     hidden:any;
+     updateval:any;
     public update=false;
     public a :number=0;
     public myArray:any= JSON.parse(window.localStorage.getItem('key')) || []; 
@@ -108,48 +108,45 @@ edit(taskname:string){
        let fetchArray= JSON.parse(window.localStorage.getItem('key'));
        this.editItem = fetchArray.filter(fetchArray => fetchArray.taskname == taskname);
         this.taskname=this.editItem[0].taskname;
-        console.log(this.editItem[0].taskname);
+       
         this.date=this.editItem[0].date;
         this.description=this.editItem[0].description;
-        this.hidden=this.editItem[0].taskname;
-
+        this.updateval=this.editItem[0].taskname;
+        console.log(this.updateval);
       
    }
 
+  
   updateItem(form: any):void{
      
-     if((form.taskname!=="" && form.date!=="" && form.description!==""))
-     {
        this.taskname=form.taskname;
-     
-     console.log(this.taskname); 
+       console.log(this.taskname);
        this.date=form.date;
        this.description=form.description;
-       form.taskname=this.hidden;
-
+       form.taskname=this.updateval;
        this.taskUpdate=form.taskname;
-     } 
+       
         let inLocalStorage= JSON.parse(window.localStorage.getItem('key'));
        
           let itemUpdate={ "taskname":this.taskname , "date": this.date, "description": this.description};
-          var j =(-1) ;
-         
-       debugger;
+          var j =0 ;
+         console.log("values to be entered in array");
+          console.log(itemUpdate);
+       
           for(var i=0; i< inLocalStorage.length; i++)
          {
            if (this.taskUpdate == inLocalStorage[i].taskname)
            {
-           console.log("inside the if function");
+
              j=i;
         
            }
         
          }  
-            if(j>0){
+
                  this.myArray.splice(j,1,itemUpdate);
-                 }
-                 console.log(itemUpdate);
+                 console.log(this.myArray);
                  window.localStorage.setItem('key',JSON.stringify(this.myArray));
              this.match= JSON.parse(window.localStorage.getItem('key'));
-}  
+}
   }
