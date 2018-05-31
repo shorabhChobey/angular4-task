@@ -25,14 +25,14 @@ export class DashboardComponent implements OnInit {
      updateval:any;
     public update=false;
     public a :number=0;
-    public myArray:any= JSON.parse(window.localStorage.getItem('key')) || []; 
+    public myArray:any= JSON.parse(window.localStorage.getItem('value')) || []; 
     public match:any=[]        
     
 constructor(private router:Router) {}
 
 
   ngOnInit() {
-  this.match= JSON.parse(window.localStorage.getItem('key'));
+  this.match= JSON.parse(window.localStorage.getItem('value'));
    
   }
    
@@ -49,11 +49,11 @@ constructor(private router:Router) {}
        } 
        else
        {
-        this.match= JSON.parse(window.localStorage.getItem('key'));
+        this.match= JSON.parse(window.localStorage.getItem('value'));
          if(this.match==null){
 
           this.myArray.push(form);  
-          window.localStorage.setItem('key',JSON.stringify(this.myArray));
+          window.localStorage.setItem('value',JSON.stringify(this.myArray));
           }
         else{
            for (var i = 0 ; i < this.match.length ; i++) {
@@ -65,7 +65,7 @@ constructor(private router:Router) {}
              if(this.a==0)
                 {
                  this.myArray.push(form);
-                 window.localStorage.setItem('key',JSON.stringify(this.myArray));
+                 window.localStorage.setItem('value',JSON.stringify(this.myArray));
                  alert("Task data store");
                  
                 }
@@ -75,14 +75,14 @@ constructor(private router:Router) {}
             }
          }  
 
-             this.match= JSON.parse(window.localStorage.getItem('key'));  
+             this.match= JSON.parse(window.localStorage.getItem('value'));  
 
      
       }
 
     delete(taskname:string){
         alert("Delete Successful");
-        let fetchArray= JSON.parse(window.localStorage.getItem('key'));
+        let fetchArray= JSON.parse(window.localStorage.getItem('value'));
            var j =0 ;
 
 
@@ -99,26 +99,32 @@ constructor(private router:Router) {}
          }  
  this.myArray.splice(j,1);
                  console.log(this.myArray);
-                 window.localStorage.setItem('key',JSON.stringify(this.myArray));
-             this.match= JSON.parse(window.localStorage.getItem('key'));
+                 window.localStorage.setItem('value',JSON.stringify(this.myArray));
+             this.match= JSON.parse(window.localStorage.getItem('value'));
 
   }
 edit(taskname:string){
        this.update=true;
-       let fetchArray= JSON.parse(window.localStorage.getItem('key'));
+console.log(taskname);
+debugger;
+       let fetchArray= JSON.parse(window.localStorage.getItem('value'));
+       console.log(fetchArray);
        this.editItem = fetchArray.filter(fetchArray => fetchArray.taskname == taskname);
+        
+       console.log(this.editItem);
         this.taskname=this.editItem[0].taskname;
        
         this.date=this.editItem[0].date;
         this.description=this.editItem[0].description;
         this.updateval=this.editItem[0].taskname;
         console.log(this.updateval);
-      
+     
    }
 
   
   updateItem(form: any):void{
-     
+    debugger;
+     this.update=false; 
        this.taskname=form.taskname;
        console.log(this.taskname);
        this.date=form.date;
@@ -126,7 +132,7 @@ edit(taskname:string){
        form.taskname=this.updateval;
        this.taskUpdate=form.taskname;
        
-        let inLocalStorage= JSON.parse(window.localStorage.getItem('key'));
+        let inLocalStorage= JSON.parse(window.localStorage.getItem('value'));
        
           let itemUpdate={ "taskname":this.taskname , "date": this.date, "description": this.description};
           var j =0 ;
@@ -146,7 +152,7 @@ edit(taskname:string){
 
                  this.myArray.splice(j,1,itemUpdate);
                  console.log(this.myArray);
-                 window.localStorage.setItem('key',JSON.stringify(this.myArray));
-             this.match= JSON.parse(window.localStorage.getItem('key'));
+                 window.localStorage.setItem('value',JSON.stringify(this.myArray));
+             this.match= JSON.parse(window.localStorage.getItem('value'));
 }
   }
