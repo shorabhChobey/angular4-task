@@ -76,7 +76,7 @@ constructor(private router:Router) {}
          }  
 
              this.match= JSON.parse(window.localStorage.getItem('key'));  
-
+             
      
       }
 
@@ -106,7 +106,7 @@ constructor(private router:Router) {}
 edit(taskname:string){
        this.update=true;
 console.log(taskname);
-debugger;
+
        let fetchArray= JSON.parse(window.localStorage.getItem('key'));
        console.log(fetchArray);
        this.editItem = fetchArray.filter(fetchArray => fetchArray.taskname == taskname);
@@ -123,7 +123,7 @@ debugger;
 
   
   updateItem(form: any):void{
-    debugger;
+   
      this.update=false; 
        this.taskname=form.taskname;
        console.log(this.taskname);
@@ -156,7 +156,7 @@ if(this.taskname!=="" &&this.date!=="" &&this.description!=="" &&this.taskUpdate
          form.taskname="";
          form.date="";
          form.description="";
-         this.updateval="";
+         
          console.log(form.taskname);
          console.log(form.date);
          console.log(form.description);
