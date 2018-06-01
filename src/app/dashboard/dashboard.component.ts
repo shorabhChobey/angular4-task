@@ -25,14 +25,14 @@ export class DashboardComponent implements OnInit {
      updateval:any;
     public update=false;
     public a :number=0;
-    public myArray:any= JSON.parse(window.localStorage.getItem('value')) || []; 
+    public myArray:any= JSON.parse(window.localStorage.getItem('key')) || []; 
     public match:any=[]        
     
 constructor(private router:Router) {}
 
 
   ngOnInit() {
-  this.match= JSON.parse(window.localStorage.getItem('value'));
+  this.match= JSON.parse(window.localStorage.getItem('key'));
    
   }
    
@@ -49,11 +49,11 @@ constructor(private router:Router) {}
        } 
        else
        {
-        this.match= JSON.parse(window.localStorage.getItem('value'));
+        this.match= JSON.parse(window.localStorage.getItem('key'));
          if(this.match==null){
 
           this.myArray.push(form);  
-          window.localStorage.setItem('value',JSON.stringify(this.myArray));
+          window.localStorage.setItem('key',JSON.stringify(this.myArray));
           }
         else{
            for (var i = 0 ; i < this.match.length ; i++) {
@@ -65,7 +65,7 @@ constructor(private router:Router) {}
              if(this.a==0)
                 {
                  this.myArray.push(form);
-                 window.localStorage.setItem('value',JSON.stringify(this.myArray));
+                 window.localStorage.setItem('key',JSON.stringify(this.myArray));
                  alert("Task data store");
                  
                 }
@@ -75,14 +75,14 @@ constructor(private router:Router) {}
             }
          }  
 
-             this.match= JSON.parse(window.localStorage.getItem('value'));  
+             this.match= JSON.parse(window.localStorage.getItem('key'));  
 
      
       }
 
     delete(taskname:string){
         alert("Delete Successful");
-        let fetchArray= JSON.parse(window.localStorage.getItem('value'));
+        let fetchArray= JSON.parse(window.localStorage.getItem('key'));
            var j =0 ;
 
 
@@ -99,15 +99,15 @@ constructor(private router:Router) {}
          }  
  this.myArray.splice(j,1);
                  console.log(this.myArray);
-                 window.localStorage.setItem('value',JSON.stringify(this.myArray));
-             this.match= JSON.parse(window.localStorage.getItem('value'));
+                 window.localStorage.setItem('key',JSON.stringify(this.myArray));
+             this.match= JSON.parse(window.localStorage.getItem('key'));
 
   }
 edit(taskname:string){
        this.update=true;
 console.log(taskname);
 debugger;
-       let fetchArray= JSON.parse(window.localStorage.getItem('value'));
+       let fetchArray= JSON.parse(window.localStorage.getItem('key'));
        console.log(fetchArray);
        this.editItem = fetchArray.filter(fetchArray => fetchArray.taskname == taskname);
         
@@ -132,7 +132,7 @@ debugger;
        form.taskname=this.updateval;
        this.taskUpdate=form.taskname;
        
-        let inLocalStorage= JSON.parse(window.localStorage.getItem('value'));
+        let inLocalStorage= JSON.parse(window.localStorage.getItem('key'));
        
           let itemUpdate={ "taskname":this.taskname , "date": this.date, "description": this.description};
           var j;
@@ -148,8 +148,8 @@ if(this.taskname!=="" &&this.date!=="" &&this.description!=="" &&this.taskUpdate
 
                  this.myArray.splice(j,1,itemUpdate);
                  console.log(this.myArray);
-                 window.localStorage.setItem('value',JSON.stringify(this.myArray));
-             this.match= JSON.parse(window.localStorage.getItem('value'));
+                 window.localStorage.setItem('key',JSON.stringify(this.myArray));
+             this.match= JSON.parse(window.localStorage.getItem('key'));
            }
         
          } } 
