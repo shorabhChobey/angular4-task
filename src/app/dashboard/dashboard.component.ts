@@ -77,13 +77,12 @@ constructor(private router:Router) {}
 
              this.match= JSON.parse(window.localStorage.getItem('key'));  
              
-     
       }
 
     delete(taskname:string){
         alert("Delete Successful");
         let fetchArray= JSON.parse(window.localStorage.getItem('key'));
-           var j =0 ;
+           var j;
 
 
            
@@ -98,26 +97,26 @@ constructor(private router:Router) {}
         
          }  
  this.myArray.splice(j,1);
-                 console.log(this.myArray);
+                 
                  window.localStorage.setItem('key',JSON.stringify(this.myArray));
              this.match= JSON.parse(window.localStorage.getItem('key'));
 
   }
 edit(taskname:string){
        this.update=true;
-console.log(taskname);
+
 
        let fetchArray= JSON.parse(window.localStorage.getItem('key'));
-       console.log(fetchArray);
+     
        this.editItem = fetchArray.filter(fetchArray => fetchArray.taskname == taskname);
         
-       console.log(this.editItem);
+     
         this.taskname=this.editItem[0].taskname;
        
         this.date=this.editItem[0].date;
         this.description=this.editItem[0].description;
         this.updateval=this.editItem[0].taskname;
-        console.log(this.updateval);
+        
      
    }
 
@@ -126,7 +125,7 @@ console.log(taskname);
    
      this.update=false; 
        this.taskname=form.taskname;
-       console.log(this.taskname);
+  
        this.date=form.date;
        this.description=form.description;
        form.taskname=this.updateval;
@@ -157,10 +156,7 @@ if(this.taskname!=="" &&this.date!=="" &&this.description!=="" &&this.taskUpdate
          form.date="";
          form.description="";
          
-         console.log(form.taskname);
-         console.log(form.date);
-         console.log(form.description);
-         console.log(this.updateval);
+     
 
 
 }
