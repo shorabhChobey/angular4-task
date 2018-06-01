@@ -28,7 +28,7 @@
   </div>
   <div class="button-flow">
   <button class="button"  type='submit' (click)="onSubmit(dashboard.value)" >Add Todo</button>         
-  <button class="button" type="submit"  *ngIf="update" (click)="updateItem(dashboard.value)" [disabled]="dashboard.pristine" >Update</button>
+  <button class="button" type="submit"  *ngIf="update.disabled" (click)="updateItem(dashboard.value)"  >Update</button>
   </div>         
   </form>
 
