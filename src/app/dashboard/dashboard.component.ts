@@ -136,23 +136,32 @@ debugger;
        
           let itemUpdate={ "taskname":this.taskname , "date": this.date, "description": this.description};
           var j =0 ;
-         console.log("values to be entered in array");
-          console.log(itemUpdate);
-       
-          for(var i=0; i< inLocalStorage.length; i++)
+
+if(this.taskname!=="" &&this.date!=="" &&this.description!=="" &&this.taskUpdate!=="")       
+      {    for(var i=0; i< inLocalStorage.length; i++)
          {
            if (this.taskUpdate == inLocalStorage[i].taskname)
            {
 
              j=i;
         
-           }
-        
-         }  
 
                  this.myArray.splice(j,1,itemUpdate);
                  console.log(this.myArray);
                  window.localStorage.setItem('value',JSON.stringify(this.myArray));
              this.match= JSON.parse(window.localStorage.getItem('value'));
+           }
+        
+         } } 
+         form.taskname="";
+         form.date="";
+         form.description="";
+         this.updateval="";
+         console.log(form.taskname);
+         console.log(form.date);
+         console.log(form.description);
+         console.log(this.updateval);
+
+
 }
   }
