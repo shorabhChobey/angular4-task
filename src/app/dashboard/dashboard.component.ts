@@ -135,7 +135,7 @@ debugger;
         let inLocalStorage= JSON.parse(window.localStorage.getItem('value'));
        
           let itemUpdate={ "taskname":this.taskname , "date": this.date, "description": this.description};
-          var j =0 ;
+          var j;
 
 if(this.taskname!=="" &&this.date!=="" &&this.description!=="" &&this.taskUpdate!=="")       
       {    for(var i=0; i< inLocalStorage.length; i++)
