@@ -77,9 +77,12 @@ constructor(private router:Router) {}
 
              this.match= JSON.parse(window.localStorage.getItem('key'));  
              
+
+             
       }
 
-    delete(taskname:string){
+
+    delete(taskname:string, date:string, description:string){
         alert("Delete Successful");
         let fetchArray= JSON.parse(window.localStorage.getItem('key'));
            var j;
@@ -88,7 +91,7 @@ constructor(private router:Router) {}
            
           for(var i=0; i< fetchArray.length; i++)
          {
-           if (taskname == fetchArray[i].taskname)
+           if (taskname == fetchArray[i].taskname && date==fetchArray[i].date && description==fetchArray[i].description)
             {
 
              j=i;
@@ -99,31 +102,26 @@ constructor(private router:Router) {}
  this.myArray.splice(j,1);
                  
                  window.localStorage.setItem('key',JSON.stringify(this.myArray));
+                console.log(this.myArray);
              this.match= JSON.parse(window.localStorage.getItem('key'));
 
   }
 edit(taskname:string){
+  
        this.update=true;
-
-
        let fetchArray= JSON.parse(window.localStorage.getItem('key'));
-     
        this.editItem = fetchArray.filter(fetchArray => fetchArray.taskname == taskname);
-        
-     
-        this.taskname=this.editItem[0].taskname;
-       
+        this.taskname=this.editItem[0].taskname;  
         this.date=this.editItem[0].date;
         this.description=this.editItem[0].description;
         this.updateval=this.editItem[0].taskname;
-        
-     
+   
    }
 
   
   updateItem(form: any):void{
    
-     this.update=false; 
+    this.update=false;
        this.taskname=form.taskname;
   
        this.date=form.date;
@@ -146,18 +144,20 @@ if(this.taskname!=="" &&this.date!=="" &&this.description!=="" &&this.taskUpdate
         
 
                  this.myArray.splice(j,1,itemUpdate);
-                 console.log(this.myArray);
+                
                  window.localStorage.setItem('key',JSON.stringify(this.myArray));
              this.match= JSON.parse(window.localStorage.getItem('key'));
            }
         
          } } 
+         
+         this.updateval=this.taskname;
+         this.taskname=null;
+         this.date=null;
+         this.description=null;
+
          form.taskname="";
          form.date="";
          form.description="";
-         
-     
-
-
 }
   }

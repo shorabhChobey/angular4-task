@@ -4,7 +4,7 @@
 </div>
 </header>
 <div class="dashboard">
-<form ngNativeValidate class="dashboard-form"  #dashboard="ngForm" >
+<form ngNativeValidate class="dashboard-form"  #dashboard="ngForm" ><p class="msg" *ngIf="update">Before click on update button. Please fill input boxes.</p>
   <div class="form-group">
    <input type="text"  class="form-control" id="name" placeholder="Task Name" name="taskname" ngModel required [value]="taskname" #formTask="ngModel">
    <div *ngIf="formTask.touched &&formTask.errors?.required" class="alert alert-danger">
@@ -28,7 +28,7 @@
   </div>
   <div class="button-flow">
   <button class="button"  type='submit' (click)="onSubmit(dashboard.value)" >Add Todo</button>         
-  <button class="button" type="submit"  *ngIf="update.disabled" (click)="updateItem(dashboard.value)"  >Update</button>
+  <button class="button" type="submit" *ngIf="update" (click)="updateItem(dashboard.value)" >Update</button>
   </div>         
   </form>
 
@@ -47,7 +47,7 @@
 <td>{{x.description}}</td>
 <td>{{x.date}}</td>
 <td><button (click)="edit(x.taskname)">Edit</button></td>
-<td><button (click)="delete(x.taskname)">Delete</button></td>
+<td><button (click)="delete(x.taskname,x.date,x.description)">Delete</button></td>
 </tr>
 </tbody>
 </table>

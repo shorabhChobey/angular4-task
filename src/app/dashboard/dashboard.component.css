@@ -19,6 +19,10 @@ header{
 	float: right;
 }
 
+.msg{
+	text-align: center;
+}
+
 a{
 	padding-right: 30px;
 	color: white;
@@ -87,8 +91,11 @@ button{
 }
 
 .alert{
+	text-align: center;
 	color:#ed0c07;
 	padding:5px !important;
+	margin-left: 5%;
+	margin-right:5%;
 }
 
 footer{
