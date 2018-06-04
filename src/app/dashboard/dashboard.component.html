@@ -27,7 +27,7 @@
   <input type="hidden"  class="form-control" id="description" placeholder="Description" name="taskUpdate" ngModel [value]="updateval">
   </div>
   <div class="button-flow">
-  <button class="button"  type='submit' (click)="onSubmit(dashboard.value)" title="Add task">Add Todo</button>         
+  <button class="button"  type='submit' (click)="onSubmit(dashboard.value)" title="Add task" [disabled]="dashboard.invalid">Add Todo</button>         
   <button class="button" type="submit" *ngIf="update" (click)="updateItem(dashboard.value)" [disabled]="dashboard.invalid" title="Update task" >Update</button>
   <button class="button" type="reset" title="Clear">Reset</button>
   </div>         
