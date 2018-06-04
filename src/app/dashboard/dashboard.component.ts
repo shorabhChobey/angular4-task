@@ -151,13 +151,6 @@ if(this.taskname!=="" &&this.date!=="" &&this.description!=="" &&this.taskUpdate
         
          } } 
          
-         this.updateval=this.taskname;
-         this.taskname=null;
-         this.date=null;
-         this.description=null;
-
-         form.taskname="";
-         form.date="";
-         form.description="";
+        
 }
   }
