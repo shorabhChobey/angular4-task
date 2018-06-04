@@ -121,6 +121,7 @@ edit(taskname:string){
   
   updateItem(form: any):void{
    
+   
     this.update=false;
        this.taskname=form.taskname;
   
@@ -150,7 +151,6 @@ if(this.taskname!=="" &&this.date!=="" &&this.description!=="" &&this.taskUpdate
            }
         
          } } 
-         
         
 }
   }
